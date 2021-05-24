@@ -1,0 +1,25 @@
+
+<base href="inhabitants/update/:id">
+
+
+	<form  [formGroup]="inhabitantForm" (ngSubmit)="onSubmit()">
+			<h1>Редагування даних жителя</h1>
+			<br> <br>
+			<label for="surname">Прізвище</label>
+			<input [placeholder]="inhabitant.surname" type="text" formControlName="surname" id="surname" /> 
+
+			<br>
+			<label for="name">Ім'я</label>
+			<input [placeholder]="inhabitant.name" type="text" formControlName="name" id="name" />
+
+			<br>
+			<label for="patronymic">По-батькові</label>
+			<input [placeholder]="inhabitant.patronymic" type="text" formControlName="patronymic" id="patronymic" />
+
+			<br>
+			<label for="flat_id">Номер квартири</label>
+			<input [placeholder]="inhabitant.flat_id" type="text" formControlName="flat_id" id="flat_id"/>
+			<br> <br>
+			<button type="submit"  [disabled]="!inhabitantForm.valid" mat-flat-button color="warn">Підтвердити</button>
+
+	</form>

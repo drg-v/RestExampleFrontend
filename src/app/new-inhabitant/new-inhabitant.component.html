@@ -1,0 +1,25 @@
+
+  <base href="inhabitants/new">
+
+
+	<form  [formGroup]="inhabitantForm" (ngSubmit)="onSubmit()">
+			<h1>Додавання нового жителя</h1>
+			<br> <br>
+			<label for="surname">Прізвище</label>
+			<input placeholder="Прізвище" type="text" formControlName="surname" id="surname" /> 
+
+			<br>
+			<label for="name">Ім'я</label>
+			<input placeholder="Ім'я" type="text" formControlName="name" id="name" />
+
+			<br>
+			<label for="patronymic">По-батькові</label>
+			<input placeholder="По-батькові" type="text" formControlName="patronymic" id="patronymic" />
+
+			<br>
+			<label for="flat_id">Номер квартири</label>
+			<input placeholder="Номер" type="text" formControlName="flat_id" id="flat_id"/>
+			<br> <br>
+			<button type="submit"  [disabled]="!inhabitantForm.valid" mat-flat-button color="warn">Підтвердити</button>
+
+	</form>

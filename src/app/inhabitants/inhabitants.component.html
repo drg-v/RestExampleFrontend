@@ -1,0 +1,52 @@
+ <base href="/inhabitants">
+
+<h1 align="center" margin="200px">Жителі</h1>
+
+<table mat-table [dataSource]="inhabitants" class="mat-elevation-z8">
+    <ng-container matColumnDef="ID">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.hab_id}} </td>
+  </ng-container>
+
+<!-- Weight Column -->
+  <ng-container matColumnDef="Surname">
+    <th mat-header-cell *matHeaderCellDef> Прізвище </th>
+    <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Ім'я </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Patronymic">
+    <th mat-header-cell *matHeaderCellDef> По-батькові </th>
+    <td mat-cell *matCellDef="let element"> {{element.patronymic}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Flat ID">
+    <th mat-header-cell *matHeaderCellDef> Номер квартири </th>
+    <td mat-cell *matCellDef="let element"> {{element.flat_id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element" width="150px">  <a routerLink="update/{{element.hab_id}}" mat-stroked-button color="primary">Редагувати</a> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef width="50px"> </th>
+    <td mat-cell *matCellDef="let element" width="50px"> <button (click)="onDelete(element.hab_id)" mat-fab color="primary"><mat-icon>delete</mat-icon></button> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+<tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+</table>
+
+<div>
+<a routerLink="../inhabitants/new" mat-flat-button color="warn">Додати жителя</a>
+  <router-outlet></router-outlet> <br>
+<div>
